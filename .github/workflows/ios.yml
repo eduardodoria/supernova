@@ -19,9 +19,8 @@ jobs:
         
       - name: Select Xcode
         run: sudo xcode-select -switch /Applications/Xcode_11.5.app
-        
+             
       - name: Build archive
         run: |
           cd workspaces/xcode/
-          xcodebuild build -sdk iphoneos -scheme supernova-ios -project Supernova.xcodeproj \
-            -configuration Debug
+          xcodebuild -sdk iphoneos -project Supernova.xcodeproj -configuration Release -scheme supernova-ios -derivedDataPath DerivedData -archivePath DerivedData/Archive/Supernova archive
