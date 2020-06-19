@@ -17,8 +17,9 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name: Debug print ANDROID_NDK_HOME
+      run: echo $ANDROID_NDK_HOME
     - name: Build with Gradle
       run: | 
-        echo $ANDROID_NDK_HOME
         cd workspaces/androidstudio/
         ./gradlew assembleDebug
