@@ -20,7 +20,7 @@ jobs:
     - name: Debug print ANDROID_NDK_HOME
       run: ls ${ANDROID_HOME}/ndk-bundle
     - name: Get NDK version
-      run: ${ANDROID_HOME}/tools/bin/sdkmanager --list
+      run: find / -name source.properties
     - name: Build with Gradle
       run: | 
         cd workspaces/androidstudio/
