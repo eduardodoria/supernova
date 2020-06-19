@@ -1,0 +1,22 @@
+name: Web platform
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Setup emsdk
+      uses: mymindstorm/setup-emsdk@v5
+      with:
+        version: latest-upstream
+        actions-cache-folder: 'emsdk-cache'
+
+    - name: Verify
+      run: emcc -v
