@@ -20,5 +20,5 @@ jobs:
       - name: Build archive
         run: |
           cd workspaces/xcode/
-          xcodebuild build -sdk iphoneos -target iOS -project Supernova.xcodeproj \
-            -configuration Debug -scheme supernova-ios
+          xcodebuild build -sdk iphoneos -target supernova-ios -project Supernova.xcodeproj \
+            -configuration Debug
