@@ -19,7 +19,6 @@ jobs:
         
       - name: Build archive
         run: |
-          export DEVELOPMENT_TEAM="xxxxx"
           cd workspaces/xcode/
-          xcodebuild build -sdk iphoneos -project Supernova.xcodeproj \
+          xcodebuild build -sdk iphoneos -target iOS -project Supernova.xcodeproj \
             -configuration Debug -scheme supernova-ios
