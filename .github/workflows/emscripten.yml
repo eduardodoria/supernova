@@ -1,4 +1,4 @@
-name: Web platform
+name: Emscripten
 
 on:
   push:
@@ -18,5 +18,7 @@ jobs:
         version: latest-upstream
         actions-cache-folder: 'emsdk-cache'
 
-    - name: Verify
-      run: emcc -v
+    - name: Build with Emscripten
+      run: |
+        cd workspaces/cmake/
+        python3 build_emscripten.py
