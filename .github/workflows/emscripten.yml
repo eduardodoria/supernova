@@ -21,7 +21,7 @@ jobs:
         uses: mymindstorm/setup-emsdk@v5
         with:
           version: latest-upstream
-          actions-cache-folder: 'emsdk-cache'
+          #actions-cache-folder: 'emsdk-cache'
 
       - name: Build with Emscripten
         run: |
