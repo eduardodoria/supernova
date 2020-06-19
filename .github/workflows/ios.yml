@@ -18,6 +18,8 @@ jobs:
         run: /usr/bin/xcodebuild -version
         
       - name: Build archive
+        env:
+          DEVELOPMENT_TEAM: SupernovaEngine
         run: |
           cd workspaces/xcode/
           xcodebuild build -sdk iphoneos -project Supernova.xcodeproj \
