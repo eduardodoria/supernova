@@ -27,6 +27,5 @@ jobs:
         env:
           EMSCRIPTEN: $EMSDK/upstream/emscripten
         run: |
-          export EMSCRIPTEN=$(dirname $(which emcc))
           cd workspaces/cmake/
           python3 build_emscripten.py
