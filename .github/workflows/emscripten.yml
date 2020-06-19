@@ -21,8 +21,7 @@ jobs:
           actions-cache-folder: 'emsdk-cache'
 
       - name: Build with Emscripten
-        env:
-          EMSCRIPTEN: ${EMSDK}/upstream/emscripten
         run: |
+          export EMSCRIPTEN=$(dirname $(which emcc))
           cd workspaces/cmake/
           python3 build_emscripten.py
