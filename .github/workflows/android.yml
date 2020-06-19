@@ -24,4 +24,5 @@ jobs:
     - name: Build with Gradle
       run: | 
         cd workspaces/androidstudio/
+        echo "ndk.dir=${ANDROID_HOME}/ndk-bundle" > local.properties
         ./gradlew assembleDebug
