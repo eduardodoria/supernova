@@ -19,6 +19,9 @@ jobs:
         with:
           version: latest-upstream
           actions-cache-folder: 'emsdk-cache'
+         
+      - name: Load emsdk env
+        run: source emsdk-cache/emsdk-master/emsdk_env.sh
 
       - name: Build with Emscripten
         run: |
