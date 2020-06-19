@@ -17,7 +17,10 @@ jobs:
       - name: Xcode version
         run: /usr/bin/xcodebuild -version
              
+      - name: Create assets dir
+        run: mkdir project/assets
+             
       - name: Build with Xcode
         run: |
           cd workspaces/xcode/
-          xcodebuild -sdk iphonesimulator -project Supernova.xcodeproj -configuration Debug -scheme supernova-ios -derivedDataPath DerivedData -archivePath DerivedData/Archive/Supernova archive
+          xcodebuild build -sdk iphonesimulator -project Supernova.xcodeproj -configuration Debug -scheme supernova-ios
