@@ -19,11 +19,9 @@ jobs:
         with:
           version: latest-upstream
           actions-cache-folder: 'emsdk-cache'
-        
-      - name: Print Env
-        run: export EMSCRIPTEN=$(which emcc)
 
       - name: Build with Emscripten
         run: |
+          export EMSCRIPTEN=$(which emcc)
           cd workspaces/cmake/
           python3 build_emscripten.py
