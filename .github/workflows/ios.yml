@@ -16,13 +16,8 @@ jobs:
 
       - name: Xcode version
         run: /usr/bin/xcodebuild -version
-        
-      - name: Select Xcode
-        run: sudo xcode-select -switch /Applications/Xcode_11.5.app
              
-      - name: Build archive
-        env:
-          DEVELOPER_DIR: /Applications/Xcode_11.5.app/Contents/Developer
+      - name: Build with Xcode
         run: |
           cd workspaces/xcode/
-          xcodebuild -sdk iphoneos -project Supernova.xcodeproj -configuration Release -scheme supernova-ios -derivedDataPath DerivedData -archivePath DerivedData/Archive/Supernova archive
+          xcodebuild build-sdk iphonesimulator -project Supernova.xcodeproj -configuration Debug -scheme supernova-ios
