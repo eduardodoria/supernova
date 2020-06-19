@@ -20,7 +20,4 @@ jobs:
       - name: Build archive
         run: |
           cd workspaces/xcode/
-          xcodebuild -sdk iphoneos -project Supernova.xcodeproj \
-            -configuration Debug -scheme Supernova \
-            -derivedDataPath DerivedData \
-            -archivePath DerivedData/Archive/Supernova archive
+          xcodebuild -sdk iphoneos -project Supernova.xcodeproj -list
