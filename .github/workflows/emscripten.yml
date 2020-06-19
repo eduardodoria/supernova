@@ -22,7 +22,7 @@ jobs:
 
       - name: Build with Emscripten
         env:
-          EMSCRIPTEN: $EMSDK/upstream/emscripten
+          EMSCRIPTEN: ${EMSDK}/upstream/emscripten
         run: |
           cd workspaces/cmake/
           python3 build_emscripten.py
