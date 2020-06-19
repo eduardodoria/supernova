@@ -1,4 +1,4 @@
-name: Emscripten
+name: IOS
 
 on:
   push:
@@ -9,19 +9,18 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup emsdk
-        uses: mymindstorm/setup-emsdk@v5
-        with:
-          version: latest-upstream
-          actions-cache-folder: 'emsdk-cache'
-
-      - name: Build with Emscripten
+      - name: Xcode version
+        run: /usr/bin/xcodebuild -version
+        
+      - name: Build archive
         run: |
-          export EMSCRIPTEN=$(dirname $(which emcc))
-          cd workspaces/cmake/
-          python3 build_emscripten.py
+          cd workspaces/xcode/
+          xcodebuild -sdk iphoneos -project Supernova.xcodeproj \
+            -configuration Debug -scheme Supernova \
+            -derivedDataPath DerivedData \
+            -archivePath DerivedData/Archive/Supernova archive
