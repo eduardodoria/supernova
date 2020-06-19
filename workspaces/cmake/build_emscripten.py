@@ -41,7 +41,7 @@ if __name__ == "__main__":
     elif "EMSCRIPTEN" in os.environ:
         emscripten = os.path.expandvars("$EMSCRIPTEN")
     else:
-        print ("You need to include EMSCRIPTEN_ROOT or EMSCRIPTEN environment variable")
+        print ("Not found EMSCRIPTEN_ROOT or EMSCRIPTEN environment variable")
         sys.exit(os.EX_CONFIG)
 
     build_dir = resolve_path("./build")
@@ -66,6 +66,6 @@ if __name__ == "__main__":
     "-DCMAKE_BUILD_TYPE=Debug",
     "-G", system_output,
     "../../../platform/emscripten"
-    ])
+    ]).check_returncode()
 
-    subprocess.run([system_make])
+    subprocess.run([system_make]).check_returncode()
